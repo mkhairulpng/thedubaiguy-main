@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Dancing+Script:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1c1712; --ink-soft:#4a423a; --cream:#f7f2ea; --cream-2:#efe7db;
+  --ink:#4a3728; --ink-soft:#4a423a; --cream:#f7f2ea; --cream-2:#efe7db;
   --gold:#b0894f; --gold-deep:#977339; --line:#e2d8c9; --paper:#fffdf9;
   --shadow:0 12px 40px rgba(28,23,18,.12); --maxw:1360px;
 }
@@ -61,7 +61,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,253,249,.92);backdro
 .navlink::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .3s}
 .navlink:hover::after{width:100%}
 .brand{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;white-space:nowrap}
-.brand-logo{height:34px;width:auto;display:block}
+.brand-logo{height:46px;width:auto;display:block}
 .brand small{display:block;font-family:'Jost';font-size:8.5px;letter-spacing:.42em;color:var(--gold-deep);font-weight:400}
 .cur-select{font-family:inherit;font-size:12px;letter-spacing:.06em;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:6px 8px;border-radius:3px;cursor:pointer}
 .icobtn{display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
@@ -182,7 +182,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,253,249,.92);backdro
 .news button{background:var(--gold);color:var(--ink);padding:0 24px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
 
 /* ===== Footer ===== */
-footer{background:#141009;color:#cbbfa9;font-size:13px}
+footer{background:#2f2318;color:#cbbfa9;font-size:13px}
 .foot-track{border-bottom:1px solid #2a2216;padding:40px 0}
 .foot-track .wrap{display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between}
 .foot-track h3{color:#fff;font-size:26px}
@@ -258,9 +258,27 @@ footer{background:#141009;color:#cbbfa9;font-size:13px}
 /* scroll reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);will-change:opacity,transform}
 .reveal.in{opacity:1;transform:none}
+/* ---- Interactive motion layer ---- */
+.card{transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.card:hover{transform:translateY(-7px)}
+.card .imgwrap img{transition:opacity .5s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.card:hover .imgwrap img{transform:scale(1.06)}
+.btn{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,background .3s,color .3s,opacity .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,17,14,.16)}
+.btn.gold:hover{box-shadow:0 12px 28px rgba(201,168,106,.38)}
+.cat img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.cat:hover img{transform:scale(1.06)}
+.swatch,.cs,.socials a,.pay-badge img{transition:transform .22s ease,box-shadow .25s ease,border-color .25s ease}
+.swatch:hover,.cs:hover{transform:scale(1.18)}
+.ncard .imgwrap img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.ncard:hover .imgwrap img{transform:scale(1.05)}
+.thumbs img:hover{border-color:var(--gold);opacity:1;transition:.2s}
+a.crumb-x,.meta h4{transition:color .25s ease}
+@keyframes floatUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1!important;transform:none!important;transition:none}
   .slide,.slide img{transition:none!important}
+  .card:hover,.card:hover .imgwrap img,.btn:hover,.cat:hover img,.ncard:hover .imgwrap img,.swatch:hover,.cs:hover{transform:none!important;box-shadow:none!important}
 }
 .crumb{font-size:12px;letter-spacing:.06em;color:var(--ink-soft);padding:24px 0 0}
 .crumb a:hover{color:var(--gold-deep)}
@@ -294,11 +312,26 @@ footer{background:#141009;color:#cbbfa9;font-size:13px}
 .care-cell b{color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
 .care-d{font-size:12px;line-height:1.5;color:#555}
 .care-note{font-size:13.5px;line-height:1.7;color:#6b6152}
+.cat-split{display:flex;align-items:center;gap:20px;margin:48px 0 28px;color:var(--gold-deep);font-family:'Cormorant Garamond',serif;font-size:27px;letter-spacing:.4px}
+.cat-split span{white-space:nowrap}
+.cat-split::before,.cat-split::after{content:"";flex:1;height:1px;background:var(--line)}
+.promo{margin:16px 0 6px;padding-top:16px;border-top:1px solid var(--line)}
+.promo-row{display:flex;gap:8px}
+.promo-row input{flex:1;min-width:0;padding:11px 13px;border:1px solid var(--line);border-radius:2px;font-family:inherit;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:#fff}
+.promo-row input:focus{outline:none;border-color:var(--gold)}
+.promo-apply{padding:11px 18px;background:var(--ink);color:#fff;border:none;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.promo-apply:hover{background:var(--gold-deep)}
+.promo-msg{min-height:15px;font-size:12px;margin-top:7px}
+.promo-msg.err{color:#c0392b}
+.promo-applied{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(201,168,106,.1);border:1px solid var(--line);border-radius:2px;padding:11px 13px;font-size:13px;color:var(--ink)}
+.promo-applied button{background:none;border:none;color:var(--gold-deep);cursor:pointer;font-size:12px;text-decoration:underline;padding:0}
 .pdp-info .lede{color:var(--ink-soft);margin-bottom:24px;font-size:15px}
 .opt-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:11px;color:var(--ink-soft)}
 .sizes{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px}
 .sizes button{min-width:50px;padding:11px 14px;border:1px solid var(--line);font-size:13px;border-radius:2px;transition:.2s}
 .sizes button.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.sizes button.soldsize{text-decoration:line-through;color:#bcb4a6;border-color:var(--line);background:repeating-linear-gradient(135deg,transparent,transparent 5px,rgba(0,0,0,.03) 5px,rgba(0,0,0,.03) 6px);cursor:not-allowed;opacity:.75}
+.sizes button.soldsize:hover{transform:none;box-shadow:none}
 .addons{display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
 .addon{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:3px;padding:12px 14px;cursor:pointer;font-size:14px;transition:.2s;user-select:none}
 .addon:hover{border-color:var(--gold)}
@@ -326,7 +359,7 @@ footer{background:#141009;color:#cbbfa9;font-size:13px}
 .co-block{margin-bottom:34px}
 .co-block h3{font-size:22px;margin-bottom:6px}
 .co-block .step{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px}
-.pay-opt{border:1px solid var(--line);border-radius:3px;margin-bottom:11px;overflow:hidden;transition:.2s}
+.pay-opt{border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden;transition:.2s}
 .pay-opt.on{border-color:var(--ink)}
 .pay-opt .top{display:flex;align-items:center;gap:12px;padding:15px 16px}
 .pay-opt .top .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line);flex:none;position:relative}
@@ -336,6 +369,7 @@ footer{background:#141009;color:#cbbfa9;font-size:13px}
 .pay-opt .top .logos{display:flex;gap:6px;align-items:center}
 .pay-opt .top .logos .chip{background:#fff;border:1px solid var(--line);border-radius:4px;padding:3px 6px;height:26px;display:flex;align-items:center}
 .pay-opt .top .logos .chip svg{height:15px;width:auto}
+.pay-opt .top .logos .chip img{height:16px;width:auto;display:block}
 .pay-opt .card-fields{max-height:0;overflow:hidden;transition:max-height .35s}
 .pay-opt.on .card-fields{max-height:320px}
 .pay-opt .card-fields .inner{padding:2px 16px 18px}
@@ -839,6 +873,11 @@ const NOTIFY_CONFIG = {
   webhookUrl: "",   // e.g. "https://admin.thedubaiguy.shop/api/order-notify"
   whatsappTemplate: "Hello {name},\nYour order has been confirmed.\nProduct: {products}\nThank you for shopping with TheDubaiGuy. Our delivery partner will contact you shortly to arrange the delivery.\nWe hope you enjoy your purchase!"
 };
+/* Live courier tracking (SimplyPost via your backend). Set statusUrl to your endpoint that
+   returns {status, statusLabel, trackingId, updatedAt} for a given ?ref=ORDER_NUMBER.
+   Leave "" and the Track page shows the built-in estimate. */
+const TRACK_CONFIG = { statusUrl: "" };   // e.g. "https://admin.thedubaiguy.shop/api/order-status"
+const SP_STAGE = { PENDING_PICKUP:1, PICKED_UP:1, COLLECTED:1, IN_TRANSIT:2, ON_THE_WAY:2, OUT_FOR_DELIVERY:2, DELIVERED:3, COMPLETED:3, CANCELLED:0, FAILED:2 };
 function notifyOrder(o){
   if(!o||!NOTIFY_CONFIG.webhookUrl) return;
   const products=o.items.map(l=>{const p=byId(l.id);return p?p.name:l.id;});
@@ -897,7 +936,7 @@ function mapCat(c){
   if(c.includes("telekung")) return {cat:"women",subcat:"telekung"};
   if(c.includes("travel")) return {cat:"women",subcat:"travelwear"};
   if(c.includes("thobe")||c.includes("kanzu")||c==="men"||c==="mens"||c==="menswear") return {cat:"men"};
-  if(c.includes("bukhoor")||c.includes("bakhoor")) return {cat:"perfumes"};   // bukhoor/oud sit under Fragrance
+  if(c.includes("bukhoor")||c.includes("bakhoor")) return {cat:"perfumes",subcat:"bukhoor"};   // bukhoor/oud sit under Fragrance
   if(c.includes("perfume")||c.includes("oud")||c.includes("fragrance")||c.includes("attar")||c.includes("edp")||c.includes("takhayal")||c.includes("dhahabi")) return {cat:"perfumes"};
   if(c.includes("incense")||c.includes("home")) return {cat:"home"};
   // women collections (abayas, batik, atlantis, lumière, telekung, women…)
@@ -920,7 +959,9 @@ async function loadProducts(){
         const cm=mapCat(p.category);
         let imgs=(p.images&&p.images.length)?p.images:(p.image?[p.image]:[]);
         if(!imgs.length){ const fb=FALLBACK_IMGS[slugify(p.name)]; if(fb&&fb.length) imgs=fb.slice(); }
-        const sizes=(p.variants||[]).filter(v=>String(v.optionType||"").toLowerCase()==="size").map(v=>String(v.optionValue));
+        const sizeVars=(p.variants||[]).filter(v=>String(v.optionType||"").toLowerCase()==="size");
+        const sizes=sizeVars.map(v=>String(v.optionValue));
+        const soldSizes=sizeVars.filter(v=>v.available===false||Number(v.stock)<=0).map(v=>String(v.optionValue));
         const soldout=(p.available===false)||Number(p.stock)<=0||String(p.status||"").toLowerCase()==="sold out";
         return {
           id: p.sku? slugify(p.sku) : (p.id!=null? "p"+p.id : slugify(p.name)),
@@ -929,6 +970,7 @@ async function loadProducts(){
           price: Number(p.price)||0, soldout, stock:Number(p.stock),
           imgs: imgs.length? imgs : [PLACEHOLDER_IMG],
           sizes: sizes.length? sizes : (p.volumeMl? [p.volumeMl+"ml"] : ["One Size"]),
+          soldSizes,
           lede: p.description||"",
           details: p.description || "",
           material: p.volumeMl? `Volume: ${p.volumeMl}ml` : ""
@@ -1039,6 +1081,41 @@ function cartCount(){return CART.reduce((s,i)=>s+i.qty,0);}
 function linePrice(l){const p=byId(l.id); if(p&&p.colors&&l.color){const c=p.colors.find(x=>x.name===l.color); if(c&&c.price!=null) return c.price;} return p?p.price:0;}
 function lineImg(l){const p=byId(l.id); if(p&&p.colors&&l.color){const c=p.colors.find(x=>x.name===l.color); if(c) return c.img;} return p.imgs[0];}
 function cartSubtotal(){return CART.reduce((s,i)=>s+linePrice(i)*i.qty,0);}
+/* ---- Promo codes ---- (edit / add your codes here; values are in the base currency, SGD) */
+const PROMO_CODES = {
+  "WELCOME10": { type:"percent",  value:10, label:"10% off" },
+  "TDG15":     { type:"percent",  value:15, label:"15% off" },
+  "SAVE20":    { type:"fixed",    value:20, label:"S$20 off" },
+  "FREESHIP":  { type:"shipping",           label:"Free delivery" }
+};
+let PROMO=null; // {code, type, value, label}
+// To use codes created in your dashboard, set validateUrl to a backend endpoint that returns
+// { valid:true, type:"percent"|"fixed"|"shipping", value:Number, label:"..." } for ?code=CODE.
+const PROMO_CONFIG = { validateUrl: "" };   // e.g. "https://admin.thedubaiguy.shop/api/validate-promo?code="
+function cartDiscount(){ const sub=cartSubtotal(); if(!PROMO)return 0;
+  if(PROMO.type==="percent") return Math.round(sub*PROMO.value)/100;
+  if(PROMO.type==="fixed")   return Math.min(PROMO.value, sub);
+  return 0; }
+function cartShipping(){ const sub=cartSubtotal(); return (sub>=200 || (PROMO&&PROMO.type==="shipping")) ? 0 : 12; }
+async function applyPromo(){
+  const el=document.getElementById("promoInput"); const msg=document.getElementById("promoMsg");
+  const code=(el?el.value:"").trim().toUpperCase();
+  if(!code){ if(msg){msg.textContent="Enter a code.";msg.className="promo-msg err";} return; }
+  // 1) Validate against the dashboard if configured
+  if(PROMO_CONFIG.validateUrl){
+    try{ const r=await fetch(PROMO_CONFIG.validateUrl+encodeURIComponent(code));
+      if(r.ok){ const d=await r.json();
+        if(d&&d.valid){ PROMO={code,type:d.type,value:d.value,label:d.label||code}; route(); return; }
+        PROMO=null; if(msg){msg.textContent="Invalid or expired code.";msg.className="promo-msg err";} return;
+      }
+    }catch(e){}
+  }
+  // 2) Fallback to built-in codes
+  const def=PROMO_CODES[code];
+  if(def){ PROMO={code,...def}; route(); }
+  else { PROMO=null; if(msg){msg.textContent="Invalid or expired code.";msg.className="promo-msg err";} }
+}
+function removePromo(){ PROMO=null; route(); }
 function addToCart(id,size,qty=1,color=null){
   size = size || byId(id).sizes[0];
   const line = CART.find(i=>i.id===id&&i.size===size&&(i.color||null)===(color||null));
@@ -1095,7 +1172,7 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
 /* ---------- Payment logos (inline SVG) ---------- */
 const LOGOS = {
   applepay:`<svg viewBox="0 0 46 18" xmlns="http://www.w3.org/2000/svg"><path d="M8.6 2.9c-.55.66-1.42 1.16-2.28 1.09-.11-.86.31-1.78.82-2.35C7.7.95 8.65.47 9.42.43c.09.9-.28 1.79-.82 2.47zM9.4 4.36c-1.25-.07-2.32.71-2.9.71-.6 0-1.5-.68-2.48-.66-1.28.02-2.46.74-3.11 1.9-1.33 2.3-.35 5.71.94 7.58.63.92 1.38 1.95 2.37 1.91.94-.04 1.3-.61 2.44-.61s1.46.61 2.46.59c1.02-.02 1.66-.93 2.29-1.86.72-1.06 1.02-2.09 1.03-2.15-.02-.01-1.98-.77-2-3.04-.02-1.9 1.55-2.81 1.62-2.86-.89-1.31-2.27-1.45-2.75-1.48-1.24-.1-2.29.68-2.87.68z" fill="#000"/><text x="17.5" y="13.6" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="500" font-size="11.5" fill="#000">Pay</text></svg>`,
-  atome:`<svg viewBox="0 0 60 16" xmlns="http://www.w3.org/2000/svg"><text x="0" y="13" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="800" font-size="14.5" fill="#0a0a0a" letter-spacing="-.5">atome</text><circle cx="54.5" cy="3.8" r="2.7" fill="#fa5a0a"/></svg>`,
+  atome:`<img src="${IMG.atome_logo}" alt="Atome" style="height:16px;width:auto;display:block">`,
   visa:`<svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg"><text x="1" y="16" font-family="Arial Black, Arial, sans-serif" font-style="italic" font-weight="900" font-size="17" fill="#1a1f71" letter-spacing=".5">VISA</text></svg>`,
   mastercard:`<svg viewBox="0 0 40 25" xmlns="http://www.w3.org/2000/svg"><circle cx="15.5" cy="12.5" r="9.4" fill="#eb001b"/><circle cx="24.5" cy="12.5" r="9.4" fill="#f79e1b"/><path d="M20 5.3a9.4 9.4 0 0 1 0 14.4 9.4 9.4 0 0 1 0-14.4z" fill="#ff5f00"/></svg>`,
   mastercard_full:`<svg viewBox="0 0 44 30" xmlns="http://www.w3.org/2000/svg"><circle cx="17" cy="11" r="9.2" fill="#eb001b"/><circle cx="25.8" cy="11" r="9.2" fill="#f79e1b"/><path d="M21.4 4a9.2 9.2 0 0 1 0 14 9.2 9.2 0 0 1 0-14z" fill="#ff5f00"/><text x="22" y="28" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="5.3" fill="#231f20" letter-spacing=".1">mastercard</text></svg>`,
@@ -1278,18 +1355,28 @@ function catView(cat){
   const label = CATLABEL[cat]||"Shop";
   let items = PRODUCTS.filter(p=>p.cat===cat);
   const cats=["all","women","men","perfumes","home"];
+  let grid;
+  if(cat==="perfumes"){
+    const isBukhoor=p=>p.subcat==="bukhoor"||/bukhoor|bakhoor|\boud\b|incense/i.test(p.name||"");
+    const perfumes=items.filter(p=>!isBukhoor(p));
+    const bukhoor=items.filter(isBukhoor);
+    grid = `${perfumes.length?`<div class="pgrid">${perfumes.map(productCard).join("")}</div>`:""}
+      ${bukhoor.length?`<div class="cat-split"><span>Bukhoor &amp; Oud</span></div><div class="pgrid">${bukhoor.map(productCard).join("")}</div>`:""}`;
+  } else {
+    grid = `<div class="pgrid">${items.map(productCard).join("")}</div>`;
+  }
   return `<div class="wrap">
     <div class="crumb"><a href="#/">Home</a> / ${label}</div>
-    <div class="page-head"><div class="eyebrow">THEDUBAIGUY</div><h1>${label}</h1></div>
+    <div class="page-head"><h1>${label}</h1></div>
     <div class="filters">${cats.map(c=>`<button class="${c===cat?'on':''}" onclick="location.hash='#/c/${c==='all'?'all':c}'">${c==='all'?'All':CATLABEL[c]}</button>`).join("")}</div>
-    <div class="pgrid">${items.map(productCard).join("")}</div>
+    ${grid}
     <div style="height:60px"></div>
   </div>`;
 }
 function allView(){
   return `<div class="wrap">
     <div class="crumb"><a href="#/">Home</a> / All Products</div>
-    <div class="page-head"><div class="eyebrow">THEDUBAIGUY</div><h1>All Products</h1></div>
+    <div class="page-head"><h1>All Products</h1></div>
     <div class="filters">
       <button class="on" onclick="location.hash='#/c/all'">All</button>
       <button onclick="location.hash='#/c/women'">Women</button>
@@ -1357,10 +1444,7 @@ function careHTML(p){
     ["nodryer","Skip the Dryer","High heat damages elasticity and weakens threads over time."]
   ];
   const cell=([ic,t,d])=>`<div class="care-cell"><span class="care-ic">${CARE_ICONS[ic]}</span><b>${t}</b></div>`;
-  return `<div class="care-block">
-    <div class="care-h">Washing</div><div class="care-row">${wash.map(cell).join("")}</div>
-    <div class="care-h">Drying Safely</div><div class="care-row">${dry.map(cell).join("")}</div>
-  </div>`;
+  return `<div class="care-block"><div class="care-row">${wash.concat(dry).map(cell).join("")}</div></div>`;
 }
 
 let PDP_STATE={img:0,size:null};
@@ -1387,7 +1471,7 @@ function pdpView(id){
         ${p.colors?`<div class="opt-label">Colour — <span id="colorName">${p.colors[0].name}</span></div>
         <div class="swatches" id="swatches">${p.colors.map((c,i)=>`<button class="swatch ${i===0?'on':''}" style="background:${swatchColor(c.name)}" title="${c.name}" onmouseenter="hoverColor('${c.img}','${c.name}',${c.price==null?'null':c.price})" onmouseleave="resetColor()" onclick="selectColor(this,'${c.img}','${c.name}',${c.price==null?'null':c.price})"></button>`).join("")}</div>`:""}
         <div class="opt-label">${p.cat==='women'?'Size':'Option'}</div>
-        <div class="sizes" id="sizes">${p.sizes.map((s,i)=>`<button class="${p.sizes.length===1?'on':''}" onclick="setSize('${s}',this)">${s}</button>`).join("")}</div>
+        <div class="sizes" id="sizes">${p.sizes.map((s,i)=>{const out=(p.soldSizes||[]).includes(String(s));return `<button class="${out?'soldsize':''}" ${out?'disabled aria-disabled="true" title="Out of stock"':`onclick="setSize('${s}',this)"`}>${s}</button>`;}).join("")}</div>
         ${p.addons&&p.addons.length&&!p.soldout?`
         <div class="opt-label">Complete Your Thobe — Add-ons</div>
         <div class="addons" id="addons">${p.addons.map(aid=>{const a=byId(aid);return `<label class="addon"><input type="checkbox" data-id="${a.id}"><span class="an">${a.name}</span><span class="ap">+${money(a.price)}</span></label>`;}).join("")}</div>`:""}
@@ -1415,7 +1499,7 @@ function pdpView(id){
         <div class="acc">
           <div class="acc-item open"><button onclick="acc(this)">Details <span class="pm">+</span></button><div class="body"><div>${descFor(p)}</div></div></div>
           <div class="acc-item"><button onclick="acc(this)">Materials &amp; Care <span class="pm">+</span></button><div class="body">${careHTML(p)}</div></div>
-          <div class="acc-item"><button onclick="acc(this)">Delivery <span class="pm">+</span></button><div class="body"><div>4-hour express delivery across Singapore via <b>Lalamove</b> on orders placed before 6pm, with live courier tracking. Free gift packaging on every order. Standard delivery to Malaysia, Brunei &amp; Indonesia available at checkout.</div></div></div>
+          <div class="acc-item"><button onclick="acc(this)">Delivery <span class="pm">+</span></button><div class="body"><div>Standard delivery in <b>1–3 working days</b> across Singapore, Malaysia, Brunei &amp; Indonesia. <b>4-hour express delivery</b> available in Singapore at checkout via <b>Lalamove</b>, with live courier tracking. Complimentary gift packaging on orders over <b>S$750</b>.</div></div></div>
           <div class="acc-item"><button onclick="acc(this)">Returns <span class="pm">+</span></button><div class="body"><div>Eligible items may be returned within 14 days of delivery in original, unworn condition with tags attached. Fragrance, bakhoor &amp; incense are final sale once opened. <a href="#/returns" style="color:var(--gold-deep);text-decoration:underline">Read full policy</a>.</div></div></div>
         </div>
         <div class="product-code">Product Code — ${(p.sku||p.id||"").toString().toUpperCase()}</div>
@@ -1463,7 +1547,7 @@ function cartView(){
 let PAY="applepay";
 function checkoutView(){
   if(!CART.length) return `<div class="wrap"><div class="page-head"><h1>Checkout</h1></div><div class="coming"><p class="muted" style="font-size:17px;margin-bottom:22px">Your bag is empty.</p><a class="btn" href="#/c/women">Start Shopping</a></div></div>`;
-  const sub=cartSubtotal(); const ship= sub>=200?0:12; const total=sub+ship;
+  const sub=cartSubtotal(); const disc=cartDiscount(); const ship=cartShipping(); const total=sub-disc+ship;
   return `<div class="wrap"><div class="crumb"><a href="#/">Home</a> / Checkout</div>
   <div class="page-head" style="border:none;padding:24px 0 10px"><h1>Checkout</h1></div>
   <form class="checkout" onsubmit="placeOrder(event)">
@@ -1479,8 +1563,13 @@ function checkoutView(){
         <div class="field"><label>Address</label><input required placeholder="Block, street, unit"></div>
         <div class="row2"><div class="field"><label>Postal code</label><input required placeholder="Singapore 0000000"></div>
         <div class="field"><label>Country / Region</label><select><option>Singapore</option><option>Malaysia</option><option>Brunei</option><option>Indonesia</option></select></div></div>
-        <div class="field"><label>Delivery method</label><select><option>4-Hour Express — Singapore · via Lalamove (Free over S$200)</option><option>Standard Delivery (1–3 days)</option><option>International Delivery</option></select>
-          <div class="ship-note"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10h4l1 3v2h-5z"/><circle cx="7" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/></svg> Same-day dispatch by <b>Lalamove</b> with live courier tracking once your order is out for delivery.</div>
+        <div class="field"><label>Delivery method</label>
+          <select id="coDelivery" onchange="updateDeliveryNote()">
+            <option value="standard">Standard Delivery — 1–3 working days</option>
+            <option value="express">4-Hour Express — Singapore · via Lalamove</option>
+            <option value="intl">International Delivery — 3–7 working days</option>
+          </select>
+          <div class="ship-note" id="shipNote"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10h4l1 3v2h-5z"/><circle cx="7" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/></svg> Standard delivery in <b>1–3 working days</b> across Singapore, Malaysia, Brunei &amp; Indonesia.</div>
         </div>
       </div>
       <div class="co-block">
@@ -1499,10 +1588,16 @@ function checkoutView(){
     <div class="osummary">
       <h3>Order Summary</h3>
       ${CART.map(l=>{const p=byId(l.id);return `<div class="oitem"><img src="${imgSrc(lineImg(l))}"><div><div class="oi-n">${p.name}</div><div class="oi-s">${l.color?l.color+' · ':''}${l.size} · Qty ${l.qty}</div></div><div class="oi-p">${money(linePrice(l)*l.qty)}</div></div>`;}).join("")}
+      <div class="promo">
+        ${PROMO
+          ? `<div class="promo-applied"><span>Code <b>${PROMO.code}</b> applied${PROMO.label?' · '+PROMO.label:''}</span><button type="button" onclick="removePromo()">Remove</button></div>`
+          : `<div class="promo-row"><input id="promoInput" placeholder="Promo code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();applyPromo();}"><button type="button" class="promo-apply" onclick="applyPromo()">Apply</button></div><div class="promo-msg" id="promoMsg"></div>`}
+      </div>
       <div style="padding-top:14px">
         <div class="summary-row"><span>Subtotal</span><span>${money(sub)}</span></div>
+        ${disc>0?`<div class="summary-row" style="color:var(--gold-deep)"><span>Discount (${PROMO.code})</span><span>−${money(disc)}</span></div>`:""}
         <div class="summary-row"><span>Delivery</span><span>${ship===0?'Free':money(ship)}</span></div>
-        <div class="summary-row"><span>Gift packaging</span><span>Free</span></div>
+        <div class="summary-row"><span>Gift packaging</span><span>${sub>=750?'Free':'<span style="color:#9a8f7c">Free over S$750</span>'}</span></div>
         <div class="summary-row total"><span>Total</span><span>${money(total)}</span></div>
       </div>
       <button class="btn gold full" type="submit" style="margin-top:16px" id="payBtn">Pay ${money(total)}</button>
@@ -1519,17 +1614,55 @@ function payOpt(id,name,logos,inner){
   </div>`;
 }
 function selectPay(id){PAY=id;[...document.querySelectorAll(".pay-opt")].forEach(o=>o.classList.toggle("on",o.id==="pay_"+id));updatePayBtn();}
-function updatePayBtn(){const b=document.getElementById("payBtn");if(!b)return;const sub=cartSubtotal();const ship=sub>=200?0:12;const total=sub+ship;
+const DELIVERY_NOTES={
+  standard:'Standard delivery in <b>1–3 working days</b> across Singapore, Malaysia, Brunei &amp; Indonesia.',
+  express:'Same-day dispatch by <b>Lalamove</b> — delivered <b>within 4 hours</b> in Singapore, with live courier tracking.',
+  intl:'International delivery in <b>3–7 working days</b> to Malaysia, Brunei &amp; Indonesia.'
+};
+function updateDeliveryNote(){const s=document.getElementById("coDelivery");const n=document.getElementById("shipNote");if(!s||!n)return;
+  const svg='<svg viewBox="0 0 24 24"><path d="M3 7h13v8H3zM16 10h4l1 3v2h-5z"/><circle cx="7" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/></svg> ';
+  n.innerHTML=svg+(DELIVERY_NOTES[s.value]||DELIVERY_NOTES.standard);}
+function updatePayBtn(){const b=document.getElementById("payBtn");if(!b)return;const total=cartSubtotal()-cartDiscount()+cartShipping();
   b.textContent = PAY==="applepay"? "Confirm with Apple Pay" : PAY==="atome"? "Continue with Atome" : PAY==="cod"? "Place Order — Cash on Delivery" : "Pay "+money(total);}
 
-function placeOrder(e){
+/* ===== Stripe =====================================================
+   publishableKey is public (safe in frontend). checkoutUrl must be your
+   backend endpoint that creates a Stripe Checkout Session and returns {url}.
+   The SECRET key + webhook secret live ONLY on your backend — never here.
+   Leave checkoutUrl "" until the backend endpoint exists. */
+const STRIPE_CONFIG = {
+  publishableKey: "pk_live_51U7l51RQQCVUkOLCVvHEFFheRoioYIj6d9b40bEK8FAHX4xMy8xCeJOq1fpRUVbZpac4oswln0YVGMKLLPmWsRxU00VhjkkOiu",
+  checkoutUrl: ""   // e.g. "https://admin.thedubaiguy.shop/api/stripe-checkout"
+};
+async function stripeCheckout(order){
+  if(!STRIPE_CONFIG.checkoutUrl) return false;
+  try{
+    const factor=order.sub>0?(order.sub-(order.disc||0))/order.sub:1;   // spread any promo discount across items
+    const items=order.items.map(l=>{const p=byId(l.id);return{name:p?p.name:l.id,size:l.size,color:l.color||"",qty:l.qty,amount:Math.round(linePrice(l)*100*factor)};});
+    const r=await fetch(STRIPE_CONFIG.checkoutUrl,{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({orderNumber:order.num,currency:String(order.cur||"SGD").toLowerCase(),email:order.email,name:order.name,mobile:order.mobile,items,shipping:Math.round((order.ship||0)*100),total:Math.round(order.total*100)})});
+    if(!r.ok) return false;
+    const d=await r.json();
+    if(d && d.url){ window.location.href=d.url; return true; }   // redirect to Stripe's secure page
+  }catch(e){}
+  return false;
+}
+async function placeOrder(e){
   e.preventDefault();
   const num="TDG-"+Date.now().toString().slice(-6)+"-SG";
   const g=id=>{const el=document.getElementById(id);return el?el.value.trim():"";};
-  const sub=cartSubtotal(), ship=sub>=200?0:12;
-  LAST_ORDER={num,items:JSON.parse(JSON.stringify(CART)),sub,ship,total:sub+ship,pay:PAY,cur:CURRENCY,date:new Date(),
-    name:g("coName"),email:g("coEmail"),mobile:g("coMobile")};
-  notifyOrder(LAST_ORDER);   // hand the order to the backend to email the receipt + send WhatsApp
+  const sub=cartSubtotal(), disc=cartDiscount(), ship=cartShipping();
+  const order={num,items:JSON.parse(JSON.stringify(CART)),sub,disc,ship,promo:PROMO?PROMO.code:"",total:sub-disc+ship,pay:PAY,cur:CURRENCY,date:new Date(),
+    delivery:g("coDelivery")||"standard",name:g("coName"),email:g("coEmail"),mobile:g("coMobile")};
+  LAST_ORDER=order;
+  // Card / Apple Pay → Stripe hosted checkout (backend confirms payment then emails + WhatsApps)
+  if(STRIPE_CONFIG.checkoutUrl && (PAY==="applepay"||PAY==="card")){
+    const btn=document.getElementById("payBtn"); if(btn){btn.disabled=true;btn.textContent="Redirecting to secure checkout…";}
+    const ok=await stripeCheckout(order); if(ok) return;
+    if(btn){btn.disabled=false;updatePayBtn();}
+  }
+  // Atome / COD (or Stripe not wired yet) → confirm now; backend sends receipt + WhatsApp
+  notifyOrder(LAST_ORDER);
   CART=[];renderBag();updateBagCount();
   location.hash="#/confirmation";
 }
@@ -1544,7 +1677,7 @@ function confirmView(){
     <div class="ordno">Order ${o.num}</div>
     <p class="muted">${o.pay==='cod'?'To pay on delivery':'Paid'} ${money(o.total)} · ${payName}</p>
     <p class="muted" style="margin-top:10px">A confirmation email with your receipt has been sent${o.email?' to <b style="color:var(--ink)">'+o.email+'</b>':''}, and a WhatsApp confirmation will reach you shortly.</p>
-    <p class="muted" style="margin-top:6px">Estimated delivery: <b style="color:var(--ink)">within 4 hours</b> (Singapore).</p>
+    <p class="muted" style="margin-top:6px">Estimated delivery: <b style="color:var(--ink)">${o.delivery==='express'?'within 4 hours (Singapore)':o.delivery==='intl'?'3–7 working days':'1–3 working days'}</b>.</p>
     <div style="display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap">
       <a class="btn gold" href="#/track?o=${o.num}">Track Your Order</a>
       <a class="btn dark-ghost" href="#/">Continue Shopping</a>
@@ -1565,19 +1698,32 @@ function trackView(preset){
       <div id="trackResult"></div>
     </div><div style="height:40px"></div></div>`;
 }
-function doTrack(){
+async function doTrack(){
   const val=(document.getElementById("trackInput").value||"").trim().toUpperCase();
   const box=document.getElementById("trackResult");
   if(!val){box.innerHTML=`<p style="text-align:center;color:#b33">Please enter an order number.</p>`;return;}
-  // Determine progress: if it's this session's order, base on minutes elapsed; else deterministic from number.
-  let stageIdx, placedDate, isReal=false;
-  if(LAST_ORDER && val===LAST_ORDER.num){
-    isReal=true; placedDate=LAST_ORDER.date;
-    const mins=(Date.now()-placedDate.getTime())/60000;
-    stageIdx = mins<2?0 : mins<60?1 : mins<180?2 : 3;
-  } else {
-    const seed=[...val].reduce((a,c)=>a+c.charCodeAt(0),0);
-    stageIdx = seed%4; placedDate=new Date(Date.now()-((seed%9)+1)*3600*1000);
+  let stageIdx, placedDate=new Date(), isReal=false, liveTrackId=null;
+  // 1) Try live courier status from the backend (SimplyPost-fed)
+  if(TRACK_CONFIG.statusUrl){
+    try{
+      box.innerHTML=`<p style="text-align:center;color:var(--muted)">Checking latest status…</p>`;
+      const r=await fetch(TRACK_CONFIG.statusUrl+(TRACK_CONFIG.statusUrl.includes("?")?"&":"?")+"ref="+encodeURIComponent(val));
+      if(r.ok){ const d=await r.json();
+        if(d && d.status){ stageIdx=(SP_STAGE[String(d.status).toUpperCase()]!=null)?SP_STAGE[String(d.status).toUpperCase()]:1;
+          liveTrackId=d.trackingId||null; if(d.updatedAt) placedDate=new Date(d.updatedAt); isReal=true; }
+      }
+    }catch(e){}
+  }
+  // 2) Fallback estimate if no live status
+  if(!isReal){
+    if(LAST_ORDER && val===LAST_ORDER.num){
+      placedDate=LAST_ORDER.date;
+      const mins=(Date.now()-placedDate.getTime())/60000;
+      stageIdx = mins<2?0 : mins<60?1 : mins<180?2 : 3;
+    } else {
+      const seed=[...val].reduce((a,c)=>a+c.charCodeAt(0),0);
+      stageIdx = seed%4; placedDate=new Date(Date.now()-((seed%9)+1)*3600*1000);
+    }
   }
   const steps=[
     {t:"Order Placed",d:"We've received your order and payment."},
@@ -2063,7 +2209,7 @@ function updateHero(){const slides=document.querySelectorAll("#slides .slide");i
 
 /* ---------- Announcement ---------- */
 function initAnnounce(){
-  const msgs=["4-Hour Delivery in Singapore","Free Gift Packaging","Go Seamless with Apple Pay","Serving Singapore · Malaysia · Brunei · Indonesia"];
+  const msgs=["4-Hour Express Delivery — Singapore","Free Gift Packaging Over S$750","Go Seamless with Apple Pay","Serving Singapore · Malaysia · Brunei · Indonesia"];
   const seq=msgs.concat(msgs); // duplicate for seamless loop
   document.getElementById("announceTrack").innerHTML=seq.map(m=>`<span>${m}</span>`).join("");
 }
