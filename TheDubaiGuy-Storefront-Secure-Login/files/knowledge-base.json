@@ -1,0 +1,82 @@
+{
+  "brand": {
+    "name": "The Dubai Guy",
+    "tone": "Warm, respectful, concise. Speaks to customers the way a knowledgeable in-store staff member would — never pushy, never robotic. Uses 'we' for the brand. Keeps replies short (2-4 sentences) unless the customer asks for detail.",
+    "positioning": "Modest wear brand. Sustainable: 100% organic materials, biodegradable packaging. Digital-first (e-receipts, digital membership cards)."
+  },
+
+  "_instructions": "This file is the bot's knowledge base. Every answer below is a placeholder — replace the 'a' text with your real policies before going live. Add or remove categories freely; the bot only knows what's written here plus live order data passed in separately.",
+
+  "categories": [
+    {
+      "id": "sizing",
+      "title": "Sizing & Fit",
+      "qa": [
+        { "q": "What sizes do you carry?", "a": "REPLACE: e.g. We carry XS–3XL across most styles. Each product page has a size chart in cm." },
+        { "q": "How do abayas fit compared to regular clothing sizes?", "a": "REPLACE: e.g. Our abayas run true to size but are designed with a relaxed, flowing cut — if you're between sizes, we recommend sizing down for a more fitted silhouette." },
+        { "q": "Do you offer petite or tall lengths?", "a": "REPLACE: e.g. Yes, select abaya and jilbab styles come in Regular (55in) and Tall (58in) lengths — check the product page for availability." },
+        { "q": "What if my item doesn't fit?", "a": "See our Returns & Exchanges section — free size exchanges within 14 days." }
+      ]
+    },
+    {
+      "id": "fabric_care",
+      "title": "Fabric & Care",
+      "qa": [
+        { "q": "What fabrics do you use?", "a": "REPLACE: e.g. Primarily organic cotton, linen blends, and modal jersey — each product page lists exact composition." },
+        { "q": "How should I wash my abaya/hijab?", "a": "REPLACE: e.g. Cold hand wash or gentle machine cycle, hang dry, cool iron if needed. Avoid tumble drying to preserve the drape." },
+        { "q": "Are your fabrics opaque / non-see-through?", "a": "REPLACE: e.g. Yes, all our modest wear fabrics are tested for opacity — no under-layer needed unless stated on the product page." }
+      ]
+    },
+    {
+      "id": "shipping",
+      "title": "Shipping & Delivery",
+      "qa": [
+        { "q": "How long does delivery take?", "a": "REPLACE: e.g. 2-4 working days within Singapore, 7-14 working days internationally." },
+        { "q": "Do you ship internationally?", "a": "REPLACE: e.g. Yes, we ship to most countries — shipping cost is calculated at checkout." },
+        { "q": "How much is shipping?", "a": "REPLACE: e.g. Free shipping within Singapore on orders over S$150; flat S$8 below that." },
+        { "q": "How do I track my order?", "a": "Share your order number and I can look up the latest status for you." }
+      ]
+    },
+    {
+      "id": "returns",
+      "title": "Returns & Exchanges",
+      "a_note": "Keep this one accurate — it's the category most likely to need a human if a customer is upset.",
+      "qa": [
+        { "q": "What is your return policy?", "a": "REPLACE: e.g. Free exchanges within 14 days of delivery for unworn items with tags attached. Refunds are offered as store credit; original payment refunds are handled case by case." },
+        { "q": "How do I start a return or exchange?", "a": "REPLACE: e.g. Reply here with your order number and reason, and we'll send a return label / instructions." },
+        { "q": "My item arrived damaged or wrong — what do I do?", "a": "ESCALATE_TO_HUMAN: Apologize, ask for order number and a photo, and flag this for Khail to review personally rather than resolving it as a standard exchange." }
+      ]
+    },
+    {
+      "id": "payments",
+      "title": "Payments",
+      "qa": [
+        { "q": "What payment methods do you accept?", "a": "We accept card payments, and installment options through Atome and GrabPay." },
+        { "q": "Can I pay in installments?", "a": "Yes — Atome and GrabPay let you split payment into installments at checkout." }
+      ]
+    },
+    {
+      "id": "aura_membership",
+      "title": "Aura Membership & Gift Cards",
+      "qa": [
+        { "q": "What is Aura?", "a": "Aura is our loyalty program — spend S$300+ in a single receipt and you'll earn membership, with a digital card you can add to Apple Wallet or Google Wallet." },
+        { "q": "How do I check my Aura points/miles?", "a": "REPLACE: e.g. Your miles are shown on your digital Aura card — tap it in your wallet app, or ask me and share your registered mobile number." },
+        { "q": "Do you sell gift cards?", "a": "REPLACE: e.g. Yes, digital gift cards are available in denominations of S$50/S$100/S$200 — delivered by email instantly." }
+      ]
+    },
+    {
+      "id": "order_status",
+      "title": "Order Status",
+      "qa": [
+        { "q": "Where is my order?", "a": "LIVE_LOOKUP: Ask for the order number if not already given, then use the order data provided in context to answer. If no order data was supplied, say you'll flag it for a status check." }
+      ]
+    },
+    {
+      "id": "escalate_always",
+      "title": "Always hand off to a human for these",
+      "qa": [
+        { "q": "Complaints, damaged/wrong items, refund disputes, anything about a payment failure or being charged incorrectly, or a customer who is clearly upset", "a": "ESCALATE_TO_HUMAN: Respond with empathy, confirm you've noted the issue, and let them know Khail will personally follow up — do not attempt to resolve or promise a specific outcome." }
+      ]
+    }
+  ]
+}
